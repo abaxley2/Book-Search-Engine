@@ -45,7 +45,11 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      // replaced response variable imported from api
+      // const response = await searchGoogleBooks(searchInput);
+      await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+      );
 
       if (!response.ok) {
         throw new Error("something went wrong!");

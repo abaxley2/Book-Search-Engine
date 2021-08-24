@@ -10,13 +10,13 @@ import {
 // imported useQuery and useMutation from Apollo
 import { useQuery, useMutation } from "@apollo/client";
 // removed import from API and replaced with GET_ME query
-import { QUERY_ME } from "../utils/queries";
-// import { getMe, deleteBook } from '../utils/API';
+import { GET_ME } from "../utils/queries";
+import { REMOVE_BOOK } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { removeBookId } from "../utils/localStorage";
 
 // use this to determine if `useEffect()` hook needs to run again
-const userDataLength = Object.keys(userData).length;
+// const userDataLength = Object.keys(userData).length;
 
 // removed useEffect hook
 // useEffect(() => {
@@ -67,8 +67,8 @@ const SavedBooks = () => {
         throw new Error("something went wrong!");
       }
 
-      const updatedUser = await response.json();
-      setUserData(updatedUser);
+      // const updatedUser = await response.json();
+      // setUserData(updatedUser);
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Book } = require("../models");
+const { User } = require("../models");
 const { signToken } = require("../utils/auth");
 
 // added resolvers
@@ -36,8 +36,9 @@ const resolvers = {
     },
 
     // addUser mutation
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, { username, email, password }) => {
+      console.log("hello");
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
 
       return { token, user };
@@ -55,7 +56,7 @@ const resolvers = {
         return updatedUser;
       }
 
-      throw new AuthenticaionError("You are not logged in");
+      throw new AuthenticationError("You are not logged in");
     },
 
     // removeBook Mutation
@@ -74,3 +75,5 @@ const resolvers = {
     },
   },
 };
+
+module.exports = resolvers;

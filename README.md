@@ -4,7 +4,7 @@
 
 This application was designed taking starter code and refactoring it from a RESTful API to use a GraphQL API with Apollo server.
 
-![Search Engine Picture of Work]()
+![Search Engine Picture of Work](https://github.com/abaxley2/Book-Search-Engine/blob/main/bookEngine.png)
 
 ## Dependencies
 
